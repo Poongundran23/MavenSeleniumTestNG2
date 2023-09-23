@@ -1,5 +1,7 @@
 package pageElements;
 
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import qaBase.BasePage;
 
@@ -10,4 +12,6 @@ public class AdactinSearchHotelPage extends BasePage {
     }
 
 
+    @FindBy(id = "location")
+    WebElement locationBtn;
 }
