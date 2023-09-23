@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="All Test Suite">
+    <test verbose="2" preserve-order="true" name="DemoTests">
+        <classes>
+            <class name="testRunner.AdactinLoginTest">
+                <methods>
+                    <include name="loginTest"/>
+                </methods>
+            </class>
+            <class name="testRunner.PaginationTest">
+                <methods>
+                    <include name="paginationTest"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+</suite>
