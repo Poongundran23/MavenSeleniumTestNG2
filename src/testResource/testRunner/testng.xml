@@ -3,12 +3,12 @@
 <suite name="All Test Suite">
     <test verbose="2" preserve-order="true" name="DemoTests">
         <classes>
-            <class name="testRunner.AdactinLoginTest">
+            <class name="tests.AdactinLoginTest">
                 <methods>
                     <include name="loginTest"/>
                 </methods>
             </class>
-            <class name="testRunner.PaginationTest">
+            <class name="tests.PaginationTest">
                 <methods>
                     <include name="paginationTest"/>
                 </methods>

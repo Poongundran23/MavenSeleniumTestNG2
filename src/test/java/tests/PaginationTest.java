@@ -1,4 +1,4 @@
-package testRunner;
+package tests;
 
 import org.testng.Assert;
 import org.testng.annotations.AfterClass;
@@ -6,7 +6,7 @@ import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 import pageElements.PaginationElements;
 import qaBase.BasePage;
-import qaUtils.Utils;
+import qaUtils.SeleniumUtils;
 
 import java.util.List;
 
@@ -19,13 +19,13 @@ import java.util.List;
 
 public class PaginationTest extends BasePage {
     PaginationElements p;
-    Utils utils;
+    SeleniumUtils utils;
 
     @BeforeClass
     public void setupMethod() throws Exception {
         setupDriver();
         p = new PaginationElements();
-        utils = new Utils();
+        utils = new SeleniumUtils();
     }
 
     @Test(description = "This test will do the pagination and get all names in the names field")

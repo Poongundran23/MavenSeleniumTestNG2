@@ -1,4 +1,4 @@
-package testRunner;
+package tests;
 
 import org.testng.Assert;
 import org.testng.annotations.AfterClass;
@@ -9,8 +9,6 @@ import pageElements.AdactinBookHotelPage;
 import qaBase.BasePage;
 import qaUtils.SeleniumUtils;
 import qaUtils.XLUtils;
-
-import java.util.Properties;
 
 public class AdactinBookHotelTest extends BasePage {
     AdactinLoginTest adactinLoginTest;

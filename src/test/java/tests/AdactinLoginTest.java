@@ -1,4 +1,4 @@
-package testRunner;
+package tests;
 
 import org.testng.Assert;
 import org.testng.annotations.AfterClass;
@@ -6,18 +6,18 @@ import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 import pageElements.AdactinLoginPage;
 import qaBase.BasePage;
-import qaUtils.Utils;
+import qaUtils.SeleniumUtils;
 
 public class AdactinLoginTest extends BasePage {
 
     AdactinLoginPage adactinLoginPage;
-    Utils utils;
+    SeleniumUtils utils;
 
     @BeforeClass
     public void beforeClass() throws Exception {
         setupDriver();
         adactinLoginPage = new AdactinLoginPage();
-        utils = new Utils();
+        utils = new SeleniumUtils();
     }
 
 

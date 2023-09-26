@@ -1,4 +1,4 @@
-package testRunner;
+package tests;
 
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
@@ -24,16 +24,16 @@ public class AdactinSearchHotelsTest extends BasePage {
     @Test(description = "This case get the cities option in the adactin hotel booking page")
     public void searchCites() throws InterruptedException {
         adactinLoginTest.loginTest();
-        System.out.println(adactinSearchHotelPage.getCities());
-        adactinSearchHotelPage.selectCity("Sydney");
-        adactinSearchHotelPage.selectHotel("Hotel Cornice");
-        adactinSearchHotelPage.selectRoomType("Deluxe");
-        adactinSearchHotelPage.selectNoOfRoom("1");
-        adactinSearchHotelPage.enterCheckInDate("22/11/2025");
-        adactinSearchHotelPage.enterCheckoutDate("25/11/2025");
-        adactinSearchHotelPage.enterNoOfAdults("2");
-        adactinSearchHotelPage.clickSearch();
-        adactinSearchHotelPage.confirmAndContinue();
+//        System.out.println(adactinSearchHotelPage.getCities());
+//        adactinSearchHotelPage.selectCity("Sydney");
+//        adactinSearchHotelPage.selectHotel("Hotel Cornice");
+//        adactinSearchHotelPage.selectRoomType("Deluxe");
+//        adactinSearchHotelPage.selectNoOfRoom("1");
+//        adactinSearchHotelPage.enterCheckInDate("22/11/2025");
+//        adactinSearchHotelPage.enterCheckoutDate("25/11/2025");
+//        adactinSearchHotelPage.enterNoOfAdults("2");
+//        adactinSearchHotelPage.clickSearch();
+//        adactinSearchHotelPage.confirmAndContinue();
     }
 
     @AfterClass

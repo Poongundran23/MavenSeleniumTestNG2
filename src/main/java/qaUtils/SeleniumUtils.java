@@ -1,9 +1,6 @@
 package qaUtils;
 
 import org.apache.commons.io.FileUtils;
-import org.apache.poi.ss.usermodel.Sheet;
-import org.apache.poi.xssf.usermodel.XSSFSheet;
-import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import org.openqa.selenium.Dimension;
 import org.openqa.selenium.Rectangle;
 import org.openqa.selenium.*;
@@ -15,16 +12,13 @@ import javax.net.ssl.HttpsURLConnection;
 import java.awt.*;
 import java.awt.event.KeyEvent;
 import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.net.URL;
-import java.nio.file.FileSystemNotFoundException;
 import java.time.Duration;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Utils extends BasePage {
+public class SeleniumUtils extends BasePage {
 
     public static TakesScreenshot tk;
     public static JavascriptExecutor js;
@@ -33,7 +27,7 @@ public class Utils extends BasePage {
     public static Alert alert;
     public static Rectangle rect;
 
-    public Utils() {
+    public SeleniumUtils() {
         try {
             tk = (TakesScreenshot) driver;
             js = (JavascriptExecutor) driver;
@@ -173,7 +167,7 @@ public class Utils extends BasePage {
     }
 
     /* Take screenshot */
-    public void takeScreenShot(String path) throws IOException {
+    public static void takeScreenShot(String path) throws IOException {
         File destination = new File(path);
         FileUtils.copyFile(tk.getScreenshotAs(OutputType.FILE), destination);
     }
