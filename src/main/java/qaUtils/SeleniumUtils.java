@@ -1,6 +1,9 @@
 package qaUtils;
 
 import org.apache.commons.io.FileUtils;
+import org.apache.poi.ss.usermodel.Sheet;
+import org.apache.poi.xssf.usermodel.XSSFSheet;
+import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import org.openqa.selenium.Dimension;
 import org.openqa.selenium.Rectangle;
 import org.openqa.selenium.*;
@@ -12,9 +15,13 @@ import javax.net.ssl.HttpsURLConnection;
 import java.awt.*;
 import java.awt.event.KeyEvent;
 import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.net.URL;
+import java.nio.file.FileSystemNotFoundException;
 import java.time.Duration;
+import java.util.ArrayList;
 import java.util.List;
 
 public class Utils extends BasePage {
@@ -26,11 +33,15 @@ public class Utils extends BasePage {
     public static Alert alert;
     public static Rectangle rect;
 
-    public void setupUtils() throws Exception {
-        tk = (TakesScreenshot) driver;
-        js = (JavascriptExecutor) driver;
-        actions = new Actions(driver);
-        robot = new Robot();
+    public Utils() {
+        try {
+            tk = (TakesScreenshot) driver;
+            js = (JavascriptExecutor) driver;
+            actions = new Actions(driver);
+            robot = new Robot();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     /*
@@ -99,9 +110,14 @@ public class Utils extends BasePage {
     /*
      * Select class methods
      */
-    public java.util.List<WebElement> getOptions(WebElement element, int index) {
+    public List<String> getOptions(WebElement element) {
         Select select = new Select(element);
-        return select.getOptions();
+        List<WebElement> op = select.getOptions();
+        ArrayList<String> options = new ArrayList<>();
+        for (WebElement o : op) {
+            options.add(o.getText());
+        }
+        return options;
     }
 
     public void selectByIndex(WebElement element, Integer... index) {
@@ -272,11 +288,13 @@ public class Utils extends BasePage {
         wait.until(ExpectedConditions.elementToBeSelected(element));
     }
 
+    public void waitUntilVisisbilityOfAllElements(long seconds) {
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(seconds));
+        wait.until(ExpectedConditions.visibilityOfAllElements());
+    }
+
     public void fluentWait(long timeOutInSec, long pollFreqInSecs) {
-        Wait wait = new FluentWait(driver)
-                .withTimeout(Duration.ofSeconds(timeOutInSec))
-                .pollingEvery(Duration.ofMillis(pollFreqInSecs))
-                .ignoring(Exception.class);
+        Wait wait = new FluentWait(driver).withTimeout(Duration.ofSeconds(timeOutInSec)).pollingEvery(Duration.ofMillis(pollFreqInSecs)).ignoring(Exception.class);
     }
 
     public Boolean checkIsTheBrokenLink(String link) throws IOException {
