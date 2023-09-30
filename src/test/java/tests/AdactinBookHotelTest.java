@@ -36,7 +36,7 @@ public class AdactinBookHotelTest extends BasePage {
 
     @Test(dataProvider = "getTestData", description = "This is to verify the booking in adactin book hotel page")
     public void bookHotelTest(String fname, String lname, String addr) throws InterruptedException {
-        adactinSearchHotelsTest.searchCites();
+        adactinSearchHotelsTest.searchHotel();
         adactinBookHotelPage.enterFirstName(fname);
         adactinBookHotelPage.enterLastName(lname);
         adactinBookHotelPage.enterAddress(addr);

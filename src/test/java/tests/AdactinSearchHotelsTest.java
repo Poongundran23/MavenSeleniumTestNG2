@@ -22,18 +22,17 @@ public class AdactinSearchHotelsTest extends BasePage {
 
 
     @Test(description = "This case get the cities option in the adactin hotel booking page")
-    public void searchCites() throws InterruptedException {
+    public void searchHotel() throws InterruptedException {
         adactinLoginTest.loginTest();
-//        System.out.println(adactinSearchHotelPage.getCities());
-//        adactinSearchHotelPage.selectCity("Sydney");
-//        adactinSearchHotelPage.selectHotel("Hotel Cornice");
-//        adactinSearchHotelPage.selectRoomType("Deluxe");
-//        adactinSearchHotelPage.selectNoOfRoom("1");
-//        adactinSearchHotelPage.enterCheckInDate("22/11/2025");
-//        adactinSearchHotelPage.enterCheckoutDate("25/11/2025");
-//        adactinSearchHotelPage.enterNoOfAdults("2");
-//        adactinSearchHotelPage.clickSearch();
-//        adactinSearchHotelPage.confirmAndContinue();
+        adactinSearchHotelPage.selectLocation(AdactinSearchHotelPage.Location.SYDNEY);
+        adactinSearchHotelPage.selectHotel(AdactinSearchHotelPage.Hotels.CREEK);
+        adactinSearchHotelPage.selectRoomType(AdactinSearchHotelPage.RoomType.DELUXE);
+        adactinSearchHotelPage.selectNoOfRooms(1);
+        adactinSearchHotelPage.enterCheckInDate("22/11/2025");
+        adactinSearchHotelPage.enterCheckOutDate("25/11/2025");
+        adactinSearchHotelPage.enterTheNoOfAdults(2);
+        adactinSearchHotelPage.clickSearch();
+        adactinSearchHotelPage.confirmAndContinue();
     }
 
     @AfterClass

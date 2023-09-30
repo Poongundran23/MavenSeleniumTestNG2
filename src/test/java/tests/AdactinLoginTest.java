@@ -33,7 +33,7 @@ public class AdactinLoginTest extends BasePage {
 
     @AfterClass
     public void afterClass() {
-        quitBrowser();
+//        quitBrowser();
     }
 }
 
