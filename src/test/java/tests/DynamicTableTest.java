@@ -1,5 +1,6 @@
 package tests;
 
+import org.testng.Assert;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
@@ -41,7 +42,15 @@ public class DynamicTableTest extends BasePage {
     @Test(dataProvider = "getTestData", description = "This method is to insert new data record in the table")
     public void insertData(String fName, String lName, String age, String email, String salary, String dept) {
         launchUrl();
-
         dynamicTableHandlingPage.insertNewRecord(fName,lName,age,email,salary,dept);
+    }
+
+    @Test(description = "This method returns the details of the searched employee")
+    public void searchAndVerifyTheEmployeeDetail() throws InterruptedException {
+        launchUrl();
+        dynamicTableHandlingPage.insertNewRecord("Test","Me","36", "test@me.com","10000","Fashion");
+        List<String> emp = dynamicTableHandlingPage.searchAndVerifyTheUserDetailsInTheTable("Test");
+        logger.info(emp);
+        Assert.assertEquals(emp.get(2),"36","Mismatch in the employee detail");
     }
 }

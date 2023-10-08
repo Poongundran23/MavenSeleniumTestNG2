@@ -43,6 +43,11 @@ public class DynamicTableHandlingPage extends BasePage {
     @FindBy(id = "submit")
     WebElement submitBtn;
 
+    @FindBy(id = "searchBox")
+    WebElement searchBox;
+
+
+
 
     public void insertNewRecord(String fName, String lName, String age, String email, String salary, String dept){
         addNewRecBtn.click();
@@ -80,7 +85,13 @@ public class DynamicTableHandlingPage extends BasePage {
         return fNameList;
     }
 
-    public void verifyTheUserDetailsInTheTable() {
-
+    public List<String> searchAndVerifyTheUserDetailsInTheTable(String firstName) throws InterruptedException {
+        List<String> empDetails = new ArrayList<>();
+        utils.setText(searchBox,firstName);
+        for(int i = 1; i < 7; i++){
+            WebElement detail = driver.findElement(By.xpath("//div[@class='rt-tbody']//div[@class='rt-tr-group'][1]//div[@role='gridcell']["+i+"]"));
+            empDetails.add(detail.getText());
+        }
+        return empDetails;
     }
 }
