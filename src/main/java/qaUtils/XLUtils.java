@@ -31,7 +31,7 @@ public class XLUtils {
         }
     }
 
-    public static Object[][] testData(String sheetName) {
+    public Object[][] testData(String sheetName) {
 
         sheet = workbook.getSheet(sheetName);
 
@@ -39,7 +39,13 @@ public class XLUtils {
 
         for(int i = 0; i < sheet.getLastRowNum(); i++){
             for (int j = 0; j < sheet.getRow(0).getLastCellNum(); j++){
-                data[i][j] = sheet.getRow(i+1).getCell(j).toString();
+                cell = sheet.getRow(i+1).getCell(j);
+                if (cell.getCellType().equals(CellType.STRING)) {
+                    data[i][j] = cell.getStringCellValue();
+                } else if (cell.getCellType().equals(CellType.NUMERIC)) {
+                    int num = (int)cell.getNumericCellValue();
+                    data[i][j] = Integer.toString(num);
+                }
             }
         }
         return data;

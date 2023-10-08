@@ -43,36 +43,36 @@ public class SeleniumUtils extends BasePage {
      */
     public void click(WebElement element) {
         element.click();
-        logger.info(element + " clicked");
+//        logger.info(element + " clicked");
     }
 
     public String getText(WebElement element) {
         String text = element.getText();
-        logger.info("Text Got: " + text);
+//        logger.info("Text Got: " + text);
         return text;
     }
 
     public void setText(WebElement element, String keys) {
         element.clear();
         element.sendKeys(keys);
-        logger.info("Keys send : " + keys);
+//        logger.info("Keys send : " + keys);
     }
 
     public String getAttribute(WebElement element, String attribute) {
         String attributeValue = element.getAttribute(attribute);
-        logger.info("Attribute Value: " + attributeValue);
+//        logger.info("Attribute Value: " + attributeValue);
         return attributeValue;
     }
 
     public String getCssValue(WebElement element, String propertyName) {
         String cssValue = element.getCssValue(propertyName);
-        logger.info("Css Value: " + cssValue);
+//        logger.info("Css Value: " + cssValue);
         return cssValue;
     }
 
     public String getTagName(WebElement element, String attribute) {
         String tagName = element.getTagName();
-        logger.info("Attribute Value: " + tagName);
+//        logger.info("Attribute Value: " + tagName);
         return tagName;
     }
 
@@ -187,7 +187,7 @@ public class SeleniumUtils extends BasePage {
     }
 
     public void highlightByJavaScript(WebElement element) {
-        js.executeScript("arguments[0].setAttribute('style',border: solid 2px red');", element);
+        js.executeScript("arguments[0].setAttribute('style','border: solid 2px red');", element);
     }
 
     /*
@@ -241,7 +241,7 @@ public class SeleniumUtils extends BasePage {
     public String getAlertText() {
         alert = driver.switchTo().alert();
         String alertText = alert.getText();
-        logger.info("Alert Text: " + alertText);
+//        logger.info("Alert Text: " + alertText);
         return alertText;
     }
 

@@ -26,7 +26,7 @@ public class AdactinLoginTest extends BasePage {
         utils.launchUrl(prop.getProperty("CrmUrl"));
         adactinLoginPage.login(prop.getProperty("UserName"), prop.getProperty("Password"));
         Thread.sleep(5000); // to get title; there is no element to do explicit wait
-        logger.info(utils.getTitle());
+//        logger.info(utils.getTitle());
         Assert.assertEquals(utils.getTitle(), "Adactin.com - Search Hotel", "Mismatch in title");
     }
 

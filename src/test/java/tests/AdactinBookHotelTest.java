@@ -23,13 +23,13 @@ public class AdactinBookHotelTest extends BasePage {
         adactinSearchHotelsTest.setupClass(); // this invokes setupDriver
         adactinBookHotelPage = new AdactinBookHotelPage();
         utils = new SeleniumUtils();
-        xlUtils = new XLUtils(prop.getProperty("AdactinNameSheet"));
+        xlUtils = new XLUtils(prop.getProperty("XLpath"));
     }
 
 
     @DataProvider
     public Object[][] getTestData() {
-        Object data[][] = xlUtils.testData(prop.getProperty("SheetName"));
+        Object data[][] = xlUtils.testData(prop.getProperty("AdactinSheet"));
         return data;
     }
 
