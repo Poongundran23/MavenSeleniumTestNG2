@@ -1,12 +1,10 @@
 package qaBase;
 
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WindowType;
 import org.openqa.selenium.chrome.ChromeDriver;
-//import org.slf4j.Logger;
-//import org.slf4j.LoggerFactory;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 
 import java.io.FileInputStream;
@@ -37,7 +35,7 @@ public class BasePage {
             System.setProperty("webdriver.gecko.driver", "/User/Home/Driver/geckdriver.exe");
         }
         driver.manage().window().maximize();
-        logger = LogManager.getLogger(BasePage.class);
+        logger = LoggerFactory.getLogger(BasePage.class);
     }
 
     /*
@@ -62,7 +60,7 @@ public class BasePage {
 
     public Set<String> getWindowHandles() {
         Set<String> windowHandles = driver.getWindowHandles();
-//        logger.info("WindowHandles: " + windowHandles);
+        logger.info("WindowHandles: " + windowHandles);
         return windowHandles;
     }
 
@@ -72,7 +70,7 @@ public class BasePage {
 
     public void switchToFrame(String frameId) {
         driver.switchTo().frame(frameId);
-//        logger.info("Switched to iFrame" + frameId);
+        logger.info("Switched to iFrame" + frameId);
     }
 
     public void refreshPage() {

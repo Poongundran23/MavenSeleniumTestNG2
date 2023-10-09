@@ -50,7 +50,7 @@ public class DynamicTableTest extends BasePage {
         launchUrl();
         dynamicTableHandlingPage.insertNewRecord("Test","Me","36", "test@me.com","10000","Fashion");
         List<String> emp = dynamicTableHandlingPage.searchAndVerifyTheUserDetailsInTheTable("Test");
-        logger.info(emp);
+        logger.info("Employee Details: "+emp);
         Assert.assertEquals(emp.get(2),"36","Mismatch in the employee detail");
     }
 }
