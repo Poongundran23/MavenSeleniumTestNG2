@@ -174,7 +174,7 @@ public class SeleniumUtils extends BasePage {
 
     /* Using JavaScript */
     public void scrollIntoView(WebElement element) {
-        js.executeScript("arguments[0].scrollIntoView(true)", element);
+        js.executeScript("arguments[0].scrollIntoView(true);", element);
     }
 
     public void clickByJavaScript(WebElement element) {

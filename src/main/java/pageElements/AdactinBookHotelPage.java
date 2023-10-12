@@ -90,6 +90,7 @@ public class AdactinBookHotelPage extends BasePage {
     }
 
     public String verifyOrderNo() {
+        utils.waitUntilElementIsVisible(orderNoField,12);
         return orderNoField.getText();
     }
 }
