@@ -1,10 +1,12 @@
 package qaBase;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WindowType;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import org.openqa.selenium.support.events.EventFiringWebDriver;
+import qaUtils.WebEventListener;
 
 
 import java.io.FileInputStream;
@@ -15,6 +17,8 @@ import java.util.Set;
 public class BasePage {
     protected static Properties prop;
     protected static WebDriver driver;
+    protected static EventFiringWebDriver e_driver;
+    protected static WebEventListener eventListener;
     protected static Logger logger;
 
     public BasePage() {
@@ -34,8 +38,14 @@ public class BasePage {
         } else if (prop.getProperty("browser").equals("firefox")) {
             System.setProperty("webdriver.gecko.driver", "/User/Home/Driver/geckdriver.exe");
         }
+
+        e_driver = new EventFiringWebDriver(driver);
+        eventListener = new WebEventListener();
+        e_driver.register(eventListener);
+        driver = e_driver;
+
         driver.manage().window().maximize();
-        logger = LoggerFactory.getLogger(BasePage.class);
+        logger = LogManager.getLogger(BasePage.class);
     }
 
     /*

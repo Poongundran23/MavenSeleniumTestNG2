@@ -1,5 +1,7 @@
 package tests;
 
+import net.bytebuddy.implementation.bytecode.Throw;
+import org.testng.Assert;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
@@ -23,8 +25,9 @@ public class SpiceJetDateChooserTest extends BasePage {
 
     @Test(description = "This method demos the date picker in the indigo page")
     public void chooseDate() throws IOException {
+        String bookingDate = "23 January 2024";
         launchUrl(prop.getProperty("spiceJetUrl"));
-        spiceJetFlightCalendarPage.chooseCalenderDate("23 January 2024");
+        spiceJetFlightCalendarPage.chooseCalenderDate(bookingDate);
     }
 
     @AfterClass()

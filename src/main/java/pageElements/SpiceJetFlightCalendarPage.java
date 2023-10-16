@@ -34,20 +34,17 @@ public class SpiceJetFlightCalendarPage extends BasePage {
         String month = dat[1];
         String year = dat[2];
 
-        String pDate = currentDate.getText();
+
+        logger.info("Date before choose: "+ currentDate.getText());
 
         currentDate.click();
 
-        SeleniumUtils.takeScreenShot("C:/Users/len/IdeaProjects/MavenSeleniumTestNG2/src/test/java/screenShot/spiceJetscr.png");
+//        SeleniumUtils.takeScreenShot("C:/Users/len/IdeaProjects/MavenSeleniumTestNG2/screenshots/spiceJetscr.png");
 
-        List<WebElement> currMonths; // = driver.findElements(By.xpath("//div[@class='css-1dbjc4n r-k8qxaj']"));
+        List<WebElement> currMonths;
 
         for (int i = 1; i < 15; i = i + 2) {
             currMonths = driver.findElements(By.xpath("//div[@class='css-1dbjc4n r-k8qxaj']"));
-            for (WebElement w : currMonths) {
-                System.out.print(" " + currMonths.get(0).getText() + " ");
-            }
-            System.out.println();
 
             if (currMonths.get(i - 1).getText().contains(month) && currMonths.get(i - 1).getText().contains(year)) {
                 driver.findElement(By.xpath("(//div[@class='css-1dbjc4n r-k8qxaj'])[" + (i) + "]/following-sibling::div[2]//div[text()='" + day + "']")).click();
@@ -58,9 +55,7 @@ public class SpiceJetFlightCalendarPage extends BasePage {
             } else {
                 nextMonthBtn.click();
             }
-
         }
-
     }
 
 }

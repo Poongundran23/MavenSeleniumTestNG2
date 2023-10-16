@@ -54,7 +54,7 @@ public class WebEventListener extends BasePage implements WebDriverEventListener
     public void onException(Throwable error, WebDriver driver) {
         System.out.println("Exception occured: " + error);
         try {
-            SeleniumUtils.takeScreenShot("");
+            SeleniumUtils.takeScreenShot();
         } catch (IOException e) {
             e.printStackTrace();
         }
