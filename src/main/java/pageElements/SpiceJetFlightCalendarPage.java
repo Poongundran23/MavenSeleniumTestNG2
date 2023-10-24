@@ -12,6 +12,7 @@ import java.util.List;
 
 public class SpiceJetFlightCalendarPage extends BasePage {
 
+
     public SpiceJetFlightCalendarPage() {
         PageFactory.initElements(driver, this);
     }

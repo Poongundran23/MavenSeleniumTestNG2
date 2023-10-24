@@ -170,9 +170,7 @@ public class SeleniumUtils extends BasePage {
     public static void takeScreenShot() throws IOException {
         File srcFile = tk.getScreenshotAs(OutputType.FILE);
         String currentDir = System.getProperty("user.dir");
-        logger.info("current dir: "+currentDir);
         String destination = currentDir + "\\screenshots\\" + System.currentTimeMillis() + ".png";
-        logger.info("dest: "+ destination);
         File desFile = new File(destination);
         FileUtils.copyFile(srcFile, desFile);
     }
